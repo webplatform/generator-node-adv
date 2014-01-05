@@ -102,7 +102,7 @@ module.exports = function(grunt) {
   grunt.registerTask('coveralls', 'Push to Coveralls.', function() {
     this.requires('mochaTest');
     var done = this.async();
-    cp.exec('cat ../test-results/lcov.txt | ../node_modules/.bin/coveralls', { cwd: './lib' }, function(err, stdout, stderr) {
+    cp.exec('cat ./test-results/lcov.txt | ./node_modules/.bin/coveralls', { cwd: './' }, function(err, stdout, stderr) {
       grunt.log.writeln(stdout + stderr);
       done(err);
     });
