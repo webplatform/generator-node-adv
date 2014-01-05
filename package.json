@@ -1,0 +1,40 @@
+{
+  "name": "generator-node-adv",
+  "version": "0.0.0",
+  "description": "A generator for Yeoman. This generator will create a NodeJS project. It has some advanced features (hence the name).",
+  "keywords": [
+    "yeoman-generator",
+    "node",
+    "project",
+    "cover",
+    "coverage",
+    "test"
+  ],
+  "author": "David Kirstein <frozenice@frozenice.de> (http://webplatform.org)",
+  "contributors": [],
+  "license": "MIT",
+  "homepage": "https://github.com/webplatform/generator-node-adv",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webplatform/generator-node-adv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webplatform/generator-node-adv/issues"
+  },
+  "main": "app/index.js",
+  "dependencies": {
+    "yeoman-generator": "~0.14.0",
+    "underscore.string": "~2.3.3",
+    "lodash-node": "~2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  }
+}

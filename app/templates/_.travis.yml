@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "0.10"
+notifications:
+  email: <%= JSON.stringify(travisMail) %><% if(travisIRC) { %>
+  irc:
+    channels:
+      - "<%= travisIRCServer %><%= travisIRCChannel %>"
+    template:
+      - "%{repository}#%{build_number} (on %{branch} by %{author}): %{message} %{build_url}"<% } %>

@@ -1,0 +1,45 @@
+{
+  "name": "<%= _.slugify(projectName) %>",
+  "version": "0.0.0",
+  "description": <%= JSON.stringify(projectDescription) %>,
+  "keywords": <%= JSON.stringify(projectKeywords.split(',')) %>,
+  "author": <%= JSON.stringify(projectAuthor) %>,
+  "contributors": [],
+  "license": "MIT",
+  "homepage": "https://github.com/<%= githubUser %>/<%= githubRepo %>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<%= githubUser %>/<%= githubRepo %>.git"
+  },
+  "bugs": {
+    "url": "https://github.com/<%= githubUser %>/<%= githubRepo %>/issues"
+  },
+  "main": "index.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "index.js",
+    "lib",
+    "bin"
+  ],
+  "scripts": {
+    "prepublish": "grunt build",
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-mocha-test": "~0.8.1",
+    "grunt-text-replace": "~0.3.10",
+    "mocha-multi": "~0.3.0",
+    "mocha-slow-reporter": "0.0.0",
+    "mocha-lcov-reporter": "0.0.1",
+    "chai": "~1.8.1",
+    "blanket": "~1.1.6",<% if (coveralls) { %>
+    "coveralls": "~2.6.1",<% } %>
+    "rimraf": "~2.2.5"
+  },
+  "peerDependencies": {},
+  "dependencies": {}
+}
