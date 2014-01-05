@@ -1,3 +1,6 @@
+[![NPM version](https://badge.fury.io/js/generator-node-adv.png)](http://badge.fury.io/js/generator-node-adv)
+[![Dependency Status](https://david-dm.org/webplatform/generator-node-adv.png)](https://david-dm.org/webplatform/generator-node-adv)
+
 # generator-node-adv
 
 A generator for [Yeoman](http://yeoman.io). This generator will create a NodeJS project. It has some advanced features (hence the name):
