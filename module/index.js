@@ -9,10 +9,6 @@ var ModuleGenerator = module.exports = function ModuleGenerator(args, options, c
   // By calling `NamedBase` here, we get the argument to the subgenerator call
   // as `this.name`.
   yeoman.generators.NamedBase.apply(this, arguments);
-
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'], bower: false });
-  });
 };
 
 util.inherits(ModuleGenerator, yeoman.generators.NamedBase);
