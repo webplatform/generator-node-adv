@@ -23,12 +23,12 @@
   },
   "main": "app/index.js",
   "dependencies": {
-    "yeoman-generator": "~0.14.0",
+    "yeoman-generator": "~0.15.0",
     "underscore.string": "~2.3.3",
     "lodash-node": "~2.4.1"
   },
   "devDependencies": {
-    "mocha": "~1.14.0"
+    "mocha": "~1.16.0"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
