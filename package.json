@@ -1,6 +1,6 @@
 {
   "name": "generator-node-adv",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A generator for Yeoman. This generator will create a NodeJS project. It has some advanced features (hence the name).",
   "keywords": [
     "yeoman-generator",
@@ -27,8 +27,7 @@
     "underscore.string": "~2.3.3",
     "lodash-node": "~2.4.1"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "peerDependencies": {
     "yo": ">=1.0.0"
   },
