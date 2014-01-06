@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.1.5
+  - [app] Gruntfile.js: Add mocha before/after globals to jshint:test
+
 #### 0.1.4
   - Remove mocha devDependency for now
   - Update README (remove TODO about removing the fix removed in 0.1.3)
