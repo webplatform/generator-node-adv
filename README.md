@@ -167,7 +167,6 @@ There are still some things to be done, but feel free to give the generator a tr
 * More customization (license?, ...)
 * Describe more stuff?
 * Tests
-* 'end' in the app generator doesn't seem to be called (since invoking the subgen), copied to module subgen
 * ...
 
 ## License
