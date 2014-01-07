@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.1.6
+  - [app] Gruntfile.js: Change Travis output to spec when running with Coveralls support (now possible with mocha-multi process killing workaround)
+
 #### 0.1.5
   - [app] Gruntfile.js: Add mocha before/after globals to jshint:test
 

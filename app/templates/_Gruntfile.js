@@ -79,26 +79,24 @@ module.exports = function(grunt) {
       rimraf.sync('test-results');
     }
     fs.mkdirSync('test-results');
+
+    process.env.multi = 'spec=- mocha-slow-reporter=test-results/slow.txt html-cov=test-results/coverage.html mocha-lcov-reporter=test-results/lcov.txt';
+    grunt.config.set('mochaTest.lib.options.reporter', 'mocha-multi');
+
+    // needed so that mocha-multi doesn't kill the process
+    var program = require('mocha/node_modules/commander');
+    program.name = 'mocha';
+    program.exit = false;
+
     if (process.env.TRAVIS) {
       if (COVERALLS) {
-        grunt.config.set('mochaTest.lib.options.reporter', 'mocha-lcov-reporter');
-        grunt.config.set('mochaTest.coverage.options.reporter', 'mocha-lcov-reporter');
-        grunt.config.set('mochaTest.coverage.options.quiet', 'true');
-        grunt.config.set('mochaTest.coverage.options.captureFile', 'test-results/lcov.txt');
+        process.env.multi = 'spec=- mocha-lcov-reporter=test-results/lcov.txt';
         grunt.task.run(['build', 'mochaTest', 'replace:results', 'coveralls']);
       } else {
         grunt.config.set('mochaTest.lib.options.reporter', 'spec');
         grunt.task.run(['build', 'mochaTest']);
       }
     } else {
-      process.env.multi = 'spec=- mocha-slow-reporter=test-results/slow.txt html-cov=test-results/coverage.html mocha-lcov-reporter=test-results/lcov.txt';
-      grunt.config.set('mochaTest.lib.options.reporter', 'mocha-multi');
-
-      // needed so that mocha-multi doesn't kill the process
-      var program = require('mocha/node_modules/commander');
-      program.name = 'mocha';
-      program.exit = false;
-
       grunt.task.run(['build', 'mochaTest', 'replace:results']);
     }
   });
