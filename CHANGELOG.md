@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.1.7
+  - [app] Gruntfile.js: Use mocha-unfunk-reporter for mocha output under Travis
+
 #### 0.1.6
   - [app] Gruntfile.js: Change Travis output to spec when running with Coveralls support (now possible with mocha-multi process killing workaround)
 
