@@ -52,7 +52,7 @@ module.exports = function(grunt) {
           ui: 'bdd',
           require: ['test/init.js']
         },
-        src: ['test/**/*.js', '!test/init.js']
+        src: ['test/**/*.js', '!test/init.js', '!test/_fixtures/**']
       }
     },
     replace: {

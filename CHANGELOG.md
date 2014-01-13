@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.1.8
+  - [app] Gruntfile.js: ignore `test/_fixtures` when running tests
+
 #### 0.1.7
   - [app] Gruntfile.js: Use mocha-unfunk-reporter for mocha output under Travis
 
