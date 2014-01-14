@@ -1,7 +1,10 @@
 # Changelog
 
+#### 0.1.9
+  - [app] Coverage: Use istanbul instead of blanket
+
 #### 0.1.8
-  - [app] Gruntfile.js: ignore `test/_fixtures` when running tests
+  - [app] Gruntfile.js: Ignore `test/_fixtures` when running tests
 
 #### 0.1.7
   - [app] Gruntfile.js: Use mocha-unfunk-reporter for mocha output under Travis
@@ -15,7 +18,7 @@
 #### 0.1.4
   - Remove mocha devDependency for now
   - Update README (remove TODO about removing the fix removed in 0.1.3)
-  - Make changelog version headers one size smaller
+  - Make CHANGELOG version headers one size smaller
 
 #### 0.1.3
   - Remove fix for non-firing `end` event in app generator
