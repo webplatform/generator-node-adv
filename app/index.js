@@ -204,7 +204,8 @@ NodeAdvGenerator.prototype.askCoveralls = function askLint() {
     type: 'confirm',
     name: 'coveralls',
     message: 'Enable Coveralls integration?',
-    default: true
+    default: true,
+    when: whenAnswer('travis', true)
   }];
 
   this.prompt(prompts, function (props) {

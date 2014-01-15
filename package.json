@@ -23,7 +23,7 @@
   },
   "main": "app/index.js",
   "dependencies": {
-    "yeoman-generator": "~0.15.0",
+    "yeoman-generator": "~0.16.0",
     "underscore.string": "~2.3.3",
     "lodash-node": "~2.4.1"
   },

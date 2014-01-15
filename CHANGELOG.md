@@ -1,5 +1,10 @@
 # Changelog
 
+#### 0.1.10
+  - Update dependencies
+  - Update README
+  - [app] Don't ask for Coveralls, if Travis was disabled
+
 #### 0.1.9
   - [app] Coverage: Use istanbul instead of blanket
 

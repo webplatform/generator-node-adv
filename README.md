@@ -8,15 +8,16 @@ A generator for [Yeoman](http://yeoman.io). This generator will create a NodeJS 
 * A `module` subgenerator (to separate your project into logical blocks)
 * A `test` subgenerator (to create basic tests with little effort)
 * Tests, which are run using [Mocha](http://visionmedia.github.io/mocha/ "Mocha - the fun, simple, flexible JavaScript test framework") and [Chai](http://chaijs.com/ "Home - Chai") for great flexibility
+* Test-Coverage collection via [Istanbul](https://github.com/gotwarlost/istanbul/) (includes statements, branches, functions and lines)
+* Running the tests locally generates additional coverage statistics (e.g. a HTML report with per-file stats and coverage-highlighted source code)
 * [JSHint](http://www.jshint.com/ "JSHint, a JavaScript Code Quality Tool") is run against all JS files (main and test)
 * [Travis CI](https://travis-ci.org/ "Travis CI - Free Hosted Continuous Integration Platform for the Open Source Community") integration (to get automated build and test feedback on commits and pull requests)
 * [Coveralls](https://coveralls.io/ "Coveralls - Test Coverage History & Statistics") integration (to keep track of the project's test coverage)
-* Different badges (you can chose which to show):
+* Different badges (you can choose which to show):
   * The latest version of your package on [NPM](https://npmjs.org/ "npm - Node Packaged Modules") (via [Gemfury](http://badge.fury.io/ "Version Badge for your RubyGems, PyPI packages, and NPM modules"))
   * Travis build status
   * Coveralls coverage statistics
   * Status of dependencies (via [David DM](https://david-dm.org/ "David, a dependency management tool for Node.js projects")), in case your referenced versions get outdated
-* Running the tests locally generates additional coverage statistics (e.g. a HTML page with per-file stats and uncovered source lines marked red)
 * Custom build logic via [Grunt](http://gruntjs.com/ "Grunt: The JavaScript Task Runner")
 
 
@@ -25,7 +26,7 @@ A generator for [Yeoman](http://yeoman.io). This generator will create a NodeJS 
 To install generator-node-adv from npm, run (depending on your system, you might need to add `sudo` in front):
 
 ```
-$ npm install -g generator-node-adv
+npm install -g generator-node-adv
 ```
 
 Note that all generators will create files in the current directory, so make sure you create a new one first and change into it:
@@ -37,7 +38,7 @@ mkdir my-new-project && cd $_
 Finally, initiate the generator:
 
 ```
-$ yo node-adv
+yo node-adv
 ```
 
 Your new project will use the MIT license. If you want to use another license, make sure to adjust `package.json` and `LICENSE`.
@@ -49,7 +50,7 @@ Your new project will use the MIT license. If you want to use another license, m
 This creates a new module, along with a first test. It will also add an export to `index.js`:
 
 ```
-$ yo node-adv:module helpers
+yo node-adv:module helpers
 ```
 
 ### node-adv:test
@@ -60,25 +61,26 @@ New tests are easily created, with support for subdirectories:
 #### This will create `test/basic/index.js`
 
 ```
-$ yo node-adv:test basic
+yo node-adv:test basic
 ```
 
 #### This will create `test/walk/slowly.js`
 
 ```
-$ yo node-adv:test walk/slowly
+yo node-adv:test walk/slowly
 ```
 
 #### This will create `test/a/b/c/d.js`
 
 ```
-$ yo node-adv:test a/b/c/d
+yo node-adv:test a/b/c/d
 ```
+
 ## Directory Layout
 
 * The root directory contains files relevant for build automation and some meta-data files.
   * It also contains the `index.js` file, which is the entry-point of your module.
-* `node_modules` - Is a standard NPM directory, that contains the modules your project depends on.
+* `node_modules` - Is a standard NodeJS directory, that contains the modules your project depends on.
 * `lib` - Contains your main source files, split into modules.
 * `test` - Contains your tests' source files.
 * `test-results` - Will be created by the test runner and includes results in various formats (see below).
@@ -105,11 +107,11 @@ You can add dependencies by running `npm install my-dep-module-name --save` - th
 
 ### Writing Code / Building / Linting
 
-Use the approriate subgenerator (see above) to get started. You should frequently commit changed code to your local Git repository. If you also push to your remote repo on every commit, you can utilize Travis to get feedback from the tests and see if everything still works as expected. You can also run the tests locally, of course, but Travis supports some advanced features like testing on multiple version of NodeJS (see [here](http://about.travis-ci.org/docs/user/languages/javascript-with-nodejs/ "Travis CI: Building a Node.js project")). If you don't want to trigger a build on Travis (this would be the case if you only changed the README, for example), just include `[ci skip]` in your commit message and Travis will ignore the commit (see [here](http://about.travis-ci.org/docs/user/how-to-skip-a-build/ "Travis CI: How to skip a build")).
+Use the approriate subgenerator (see above) to get started. You should frequently commit changed code to your local [Git](http://git-scm.com/) repository. If you also push to your remote repo on every commit, you can utilize Travis to get feedback from the tests and see if everything still works as expected. You can also run the tests locally, of course, but Travis supports some advanced features like testing on multiple version of NodeJS (see [here](http://about.travis-ci.org/docs/user/languages/javascript-with-nodejs/ "Travis CI: Building a Node.js project")). If you don't want to trigger a build on Travis (this would be the case if you only changed the README, for example), just include `[ci skip]` anywhere in your commit message and Travis will ignore the commit (see [here](http://about.travis-ci.org/docs/user/how-to-skip-a-build/ "Travis CI: How to skip a build")).
 
 You can use `npm install` (or `npm i` for short) to (re-)build your project. This will also check your `package.json` file for errors and install any missing dependencies.
 
-Linting is a form of static code analysis. This means that a tool will take a look at your code and provide feedback if it encounters errors in syntax or semantics. The tool used here is JSHint, the rules by which it operates are configurable. Take a look at line 12 in `Gruntfile.js` and follow the link there to setup your own options that match your environment and coding-style.
+Linting is a form of static code analysis. This means that a tool will take a look at your code and provide feedback if it encounters errors in syntax or semantics. The tool used here is JSHint, the rules by which it operates are configurable. Take a look at line 12 in `Gruntfile.js` and follow the link there to setup your own options that match your environment and coding-style. All your main and test .js files will be linted when you run `npm install`.
 
 ### Writing Tests
 
@@ -118,6 +120,8 @@ Tests are a good way to make sure your code actually does what it is supposed to
 There are two main development methods regarding tests: either write your code first and the tests later until everything is covered or write your tests first and the code later until every test passes. Pick whatever suits you best, you can also mix the two methods. In any case, you shouldn't spend too much time on just one side.
 
 A good idea is to group tests about the same component or part of your module organized in sub-directories under `test`. Don't go into too much differentiation with those sub-directories - you can split the tests over separate files, too, and even have multiple groups of tests (or "suites") in one file. The files should have a meaningful, short name. There already is a `test/init.js` file, which will get included automatically by the test-runner. It initializes some convenience methods, so tests are even easier to write!
+
+If you need to define some states to check against or provide some sort of config, you can create a directory called `_fixtures` in your `test` directory. This directory will automatically excluded by the test-runner. Examples of fixtures are a defined database state to check against in a test or a configuration for some initializer.
 
 The test-runner used here is Mocha (in BDD mode), which supports features like: synchronous / asynchronous tests, executing hook functions before / after tests, pending tests and exclusive / inclusive tests. Take a look at the [Mocha documentation](http://visionmedia.github.io/mocha/) to learn about these features and more (for example, how to configure test timeouts). You can find a bunch of tests in the [examples section](http://visionmedia.github.io/mocha/#example-test-suites) there, too. Basically, you create suites (via `describe()`) which can contain sub-suites and tests (via `it()`).
 
@@ -140,9 +144,9 @@ This will produce output like the following:
 ```
 
 You can watch the test-runner executing your suites and tests, flagging passes and failures. It will also produce some additional files under the `test-results` directory:
-* `coverage.html` - Contains your tested main source files. It displays % coverage and SLOC stats per file and highlights lines, which aren't covered yet.
+* `index.html` - This HTML report displays how much statements / branches / functions / lines are covered in a per-file table format and inline in your highlighted code. See [here](http://gotwarlost.github.io/istanbul/public/coverage/lcov-report/index.html) for an example.
 * `slow.txt` - Lists all your suites and tests by how long they ran. Useful to find slow tests.
-* `lcov.txt` - This format can be imported by a number of code coverage tools.
+* `lcov.info` - This format can be imported by a number of code coverage tools and is used by the Coveralls integration.
 
 ## Publishing
 
