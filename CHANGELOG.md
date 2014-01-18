@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.1.11
+  - [app] Ensure `false` for JSON.stringify
+
 #### 0.1.10
   - Update dependencies
   - Update README

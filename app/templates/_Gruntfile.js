@@ -3,8 +3,8 @@ var cp = require('child_process');
 var rimraf = require('rimraf');
 var istanbul = require('istanbul');
 
-var LINT = <%= JSON.stringify(lint) %>;
-var COVERALLS = <%= JSON.stringify(coveralls) %>;
+var LINT = <%= JSON.stringify(lint || false) %>;
+var COVERALLS = <%= JSON.stringify(coveralls || false) %>;
 
 module.exports = function(grunt) {
   grunt.initConfig({
