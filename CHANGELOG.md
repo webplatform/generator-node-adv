@@ -1,5 +1,9 @@
 # Changelog
 
+#### 0.1.12
+  - [module] Remove hardcoded reference to .js files (so a module or the app can easily put into a sub-folder later on)
+  - [module] Only append export if index.js exists
+
 #### 0.1.11
   - [app] Ensure `false` for JSON.stringify
 
