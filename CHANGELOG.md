@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.1.14
+  - Just fixing NPM metadata
+
 #### 0.1.13
   - PR #1 @garymcleanhall: fixed a missing close-parenthesis on an if-statement
 
