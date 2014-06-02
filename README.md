@@ -53,6 +53,14 @@ This creates a new module, along with a first test. It will also add an export t
 yo node-adv:module helpers
 ```
 
+Subdirectories are also supported:
+
+#### This will create `lib/some/thing/different.js` with `SomeThingDifferent` as the module's name
+
+```
+yo node-adv:module some/thing/different
+```
+
 ### node-adv:test
 
 New tests are easily created, with support for subdirectories:

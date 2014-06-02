@@ -1,5 +1,5 @@
-describe('The <%= _.capitalize(name) %> module', function() {
+describe('The <%= _.classify(name) %> module', function() {
   it('should be exposed', function() {
-    require('../../').<%= _.capitalize(name) %>.should.exist;
+    require('../<%= moduleBase.replace(/[^/]+(\/|$)/g, '../') %>').<%= _.classify(name) %>.should.exist;
   });
 });

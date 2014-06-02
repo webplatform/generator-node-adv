@@ -1,4 +1,4 @@
-function <%= _.capitalize(name) %>() {
+function <%= _.classify(name) %>() {
 }
 
-module.exports = <%= _.capitalize(name) %>;
+module.exports = <%= _.classify(name) %>;

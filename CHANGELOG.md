@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.2.0
+  - [module] Add support for subdirectories (`yo node-adv:module some/thing/different`)
+
 #### 0.1.14
   - Just fixing NPM metadata
 

@@ -9,17 +9,24 @@ var ModuleGenerator = module.exports = function ModuleGenerator(args, options, c
   // By calling `NamedBase` here, we get the argument to the subgenerator call
   // as `this.name`.
   yeoman.generators.NamedBase.apply(this, arguments);
+  var parts = this.name.split('/');
+  if (parts.length == 1) {
+    parts.push('index');
+  }
+  this.moduleName = parts[parts.length - 1];
+  parts.pop();
+  this.moduleBase = parts.join('/');
 };
 
 util.inherits(ModuleGenerator, yeoman.generators.NamedBase);
 
 ModuleGenerator.prototype.files = function files() {
-  this.mkdir('lib');
-  this.template('_module.js', 'lib/' + this.name + '.js');
+  this.mkdir('lib/' + this.moduleBase);
+  this.template('_module.js', 'lib/' + this.moduleBase + '/' + this.moduleName + '.js');
   if (fs.existsSync('index.js')) {
-    fs.appendFileSync('index.js', 'exports.' + _(this.name).capitalize() + ' = require(\'./lib/' + this.name + '\');\n');
+    fs.appendFileSync('index.js', 'exports.' + _(this.name).classify() + ' = require(\'./lib/' + this.moduleBase + '/' + this.moduleName + '.js\');\n');
   }
 
-  this.mkdir('test/' + this.name);
-  this.template('_test.js', 'test/' + this.name + '/' + 'index.js');
+  this.mkdir('test/' + this.moduleBase);
+  this.template('_test.js', 'test/' + this.moduleBase + '/' + this.moduleName + '.js');
 };
