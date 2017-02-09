@@ -7,7 +7,7 @@ A generator for [Yeoman](http://yeoman.io). This generator will create a NodeJS 
 
 * A `module` subgenerator (to separate your project into logical blocks)
 * A `test` subgenerator (to create basic tests with little effort)
-* Tests, which are run using [Mocha](http://visionmedia.github.io/mocha/ "Mocha - the fun, simple, flexible JavaScript test framework") and [Chai](http://chaijs.com/ "Home - Chai") for great flexibility
+* Tests, which are run using [Mocha](http://mochajs.org/ "Mocha - the fun, simple, flexible JavaScript test framework") and [Chai](http://chaijs.com/ "Home - Chai") for great flexibility
 * Test-Coverage collection via [Istanbul](https://github.com/gotwarlost/istanbul/) (includes statements, branches, functions and lines)
 * Running the tests locally generates additional coverage statistics (e.g. a HTML report with per-file stats and coverage-highlighted source code)
 * [JSHint](http://www.jshint.com/ "JSHint, a JavaScript Code Quality Tool") is run against all JS files (main and test)
@@ -131,7 +131,7 @@ A good idea is to group tests about the same component or part of your module or
 
 If you need to define some states to check against or provide some sort of config, you can create a directory called `_fixtures` in your `test` directory. This directory will automatically excluded by the test-runner. Examples of fixtures are a defined database state to check against in a test or a configuration for some initializer.
 
-The test-runner used here is Mocha (in BDD mode), which supports features like: synchronous / asynchronous tests, executing hook functions before / after tests, pending tests and exclusive / inclusive tests. Take a look at the [Mocha documentation](http://visionmedia.github.io/mocha/) to learn about these features and more (for example, how to configure test timeouts). You can find a bunch of tests in the [examples section](http://visionmedia.github.io/mocha/#example-test-suites) there, too. Basically, you create suites (via `describe()`) which can contain sub-suites and tests (via `it()`).
+The test-runner used here is Mocha (in BDD mode), which supports features like: synchronous / asynchronous tests, executing hook functions before / after tests, pending tests and exclusive / inclusive tests. Take a look at the [Mocha documentation](http://mochajs.org/) to learn about these features and more (for example, how to configure test timeouts). You can find a bunch of tests in the [examples section](http://mochajs.org/#examples) there, too. Basically, you create suites (via `describe()`) which can contain sub-suites and tests (via `it()`).
 
 The build environment also uses the Chai library so you can easily write your checks. Read about the different styles and what helper methods are at your disposal in the [Chai guide](http://chaijs.com/guide/styles/). The `test/init.js` file activates all three styles (should, expect and assert) automatically, so you don't need to include them and can write your tests right away!
 
